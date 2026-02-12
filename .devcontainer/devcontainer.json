@@ -1,6 +1,7 @@
 {
-    "name": "Antigravity Genesis (Stable)",
+    "name": "Antigravity Genesis (Root Mode)",
     "image": "mcr.microsoft.com/devcontainers/typescript-node:20-bullseye",
+    "remoteUser": "root",
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {
             "version": "latest",
@@ -9,7 +10,10 @@
         "ghcr.io/devcontainers/features/github-cli:1": {},
         "ghcr.io/devcontainers/features/python:1": {},
         "ghcr.io/devcontainers/features/common-utils:2": {
-            "configureZshAsDefaultShell": true
+            "configureZshAsDefaultShell": true,
+            "username": "node",
+            "userUid": "1000",
+            "userGid": "1000"
         }
     },
     "customizations": {
@@ -25,12 +29,5 @@
                 "python.defaultInterpreterPath": "/usr/local/bin/python"
             }
         }
-    },
-    "mounts": [
-        "source=${localWorkspaceFolder}/.beads,target=${containerWorkspaceFolder}/.beads,type=bind,consistency=cached",
-        "source=${localWorkspaceFolder}/.ai-context,target=${containerWorkspaceFolder}/.ai-context,type=bind,consistency=cached",
-        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
-    ],
-    "postCreateCommand": "bash .devcontainer/setup.sh",
-    "remoteUser": "node"
+    }
 }
