@@ -4,10 +4,12 @@
 > Um template de infraestrutura "Agent-First" projetado para transformar o IDE em uma fábrica de software autônoma.
 
 ## 🎯 Propósito
+
 Este repositório serve como o "Template Mestre" (Genesis) para novos projetos. Ele configura automaticamente um ambiente blindado e instrumentado para que Agentes de IA (Gemini 3, Claude, etc.) operem com:
-1.  **Memória Persistente:** Via sistema [Beads](https://github.com/steveyegge/beads) (Grafo de Tarefas).
-2.  **Infraestrutura Imutável:** Via DevContainers com Docker-in-Docker.
-3.  **Conectividade Estendida:** Preparado para o Docker MCP Toolkit (Gateway de Ferramentas).
+
+1. **Memória Persistente:** Via sistema [Beads](https://github.com/steveyegge/beads) (Grafo de Tarefas).
+2. **Infraestrutura Imutável:** Via DevContainers com Docker-in-Docker.
+3. **Conectividade Estendida:** Preparado para o Docker MCP Toolkit (Gateway de Ferramentas).
 
 ## 🏗️ Arquitetura
 
@@ -20,12 +22,14 @@ O ambiente é composto por três pilares:
 ## 🚀 Como Iniciar
 
 1. **Clone este repositório:**
+
    ```bash
    git clone [https://github.com/brunosrosa/antigravity-genesis.git](https://github.com/brunosrosa/antigravity-genesis.git)
-   ``` 
+   ```
+
 2.Abra no Antigravity / VS Code: Certifique-se de ter o Docker Desktop rodando.
 
-3. Reopen in Container: Aguarde o script de setup.sh finalizar a configuração do ambiente e a correção dos paths do servidor.
+1. Reopen in Container: Aguarde o script de setup.sh finalizar a configuração do ambiente e a correção dos paths do servidor.
 
 📂 Estrutura de Diretórios
 /
