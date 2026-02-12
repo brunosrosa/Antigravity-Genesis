@@ -1,9 +1,6 @@
 {
-    "name": "Antigravity Genesis (WSL + Docker MCP)",
+    "name": "Antigravity Genesis (Stable)",
     "image": "mcr.microsoft.com/devcontainers/typescript-node:20-bullseye",
-    "runArgs": [
-        "--network=host"
-    ],
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {
             "version": "latest",
