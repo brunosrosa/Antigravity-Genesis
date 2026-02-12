@@ -1,0 +1,39 @@
+{
+    "name": "Antigravity Genesis (WSL + Docker MCP)",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:20-bullseye",
+    "runArgs": [
+        "--network=host"
+    ],
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
+            "version": "latest",
+            "moby": true
+        },
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/devcontainers/features/python:1": {},
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "configureZshAsDefaultShell": true
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "charliermarsh.ruff",
+                "steveyegge.beads-extension",
+                "dbaeumer.vscode-eslint"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "python.defaultInterpreterPath": "/usr/local/bin/python"
+            }
+        }
+    },
+    "mounts": [
+        "source=${localWorkspaceFolder}/.beads,target=${containerWorkspaceFolder}/.beads,type=bind,consistency=cached",
+        "source=${localWorkspaceFolder}/.ai-context,target=${containerWorkspaceFolder}/.ai-context,type=bind,consistency=cached",
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+    "postCreateCommand": "bash .devcontainer/setup.sh",
+    "remoteUser": "node"
+}
