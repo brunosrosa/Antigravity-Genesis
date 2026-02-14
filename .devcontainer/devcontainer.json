@@ -1,33 +1,29 @@
 {
-    "name": "Antigravity Genesis (Root Mode)",
-    "image": "mcr.microsoft.com/devcontainers/typescript-node:20-bullseye",
+    "name": "Antigravity Genesis (Golden Template)",
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+    },
     "remoteUser": "root",
+    "containerUser": "root",
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {
             "version": "latest",
             "moby": true
         },
-        "ghcr.io/devcontainers/features/github-cli:1": {},
-        "ghcr.io/devcontainers/features/python:1": {},
-        "ghcr.io/devcontainers/features/common-utils:2": {
-            "configureZshAsDefaultShell": true,
-            "username": "node",
-            "userUid": "1000",
-            "userGid": "1000"
-        }
+        "ghcr.io/devcontainers/features/python:1": {}
     },
     "customizations": {
         "vscode": {
             "extensions": [
                 "ms-python.python",
                 "charliermarsh.ruff",
-                "steveyegge.beads-extension",
-                "dbaeumer.vscode-eslint"
-            ],
-            "settings": {
-                "terminal.integrated.defaultProfile.linux": "zsh",
-                "python.defaultInterpreterPath": "/usr/local/bin/python"
-            }
+                "steveyegge.beads-extension"
+            ]
         }
-    }
+    },
+    // Mapeia o Docker Socket para permitir o Gateway MCP no futuro
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ]
 }
